@@ -1,0 +1,49 @@
+<body><div class="container">
+  <div class="login-form">
+    <h2>Login</h2>
+    <form (ngSubmit)="login()" #loginForm="ngForm">
+      <div>
+        <label for="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          [(ngModel)]="email"
+          name="email"
+          required
+          pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+          #emailInput="ngModel"
+        >
+        <div *ngIf="emailInput.invalid && emailInput.touched">
+          <small *ngIf="emailInput.errors?.required">Email is required.</small>
+          <small *ngIf="emailInput.errors?.pattern">Invalid email format.</small>
+        </div>
+      </div>
+
+      <div>
+        <label for="password">Password</label>
+        <input
+          id="password"
+          type="password"
+          [(ngModel)]="password"
+          name="password"
+          required
+          #passwordInput="ngModel"
+        >
+        <div *ngIf="passwordInput.invalid && passwordInput.touched">
+          <small>Password is required.</small>
+        </div>
+      </div>
+
+      <button type="submit" [disabled]="loginForm.invalid">Login</button>
+    </form>
+
+    <div>
+      <p>Don't have an account? <a [routerLink]="['/register']">Sign up here</a></p>
+    </div>
+  </div>
+</div>
+<!-- Sprinkle Container -->
+<div class="sprinkle-container" *ngIf="showSprinkles">
+  <div *ngFor="let sprinkle of sprinkles" class="sprinkle" [ngStyle]="sprinkle.style"></div>
+</div></body>
+

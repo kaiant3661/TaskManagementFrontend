@@ -1,0 +1,109 @@
+<!-- Header Section -->
+<div class="header">
+  <span class="date-time"><h4>{{ currentDate | date: 'fullDate' }} {{ currentDate | date: 'shortTime' }}</h4></span>
+  <span class="qout">
+    <strong>You have</strong> 
+    <span>   </span>
+      <span class="task-count">{{ totalTasksCount }}</span>tasks in total
+    <span>  | </span>
+    <span class="task-count">{{ pendingTasksCount }}</span> pending
+    <span>  |  </span>
+    <span class="task-count">{{ inProgressTasksCount }}</span> in progress
+    <span>  | </span>
+    <span class="task-count">{{ completedTasksCount }}</span> completed
+    
+  </span>
+  
+  
+  <!-- Circular Avatar with profile image -->
+  <div class="profile-avatar" (click)="navigateToProfile()">
+    <img src="assets/images/profile.png" alt="Profile Avatar" />
+  </div>
+</div>
+<!-- Filter Buttons above the task list -->
+<div class="filter-buttons">
+  <button (click)="filterTasksByStatus('All')" class="filtered-button all">All</button>
+  <button (click)="filterTasksByStatus('Pending')" class="filtered-button start-button">Pending</button>
+  <button (click)="filterTasksByStatus('InProgress')" class="filtered-button complete-button">In Progress</button>
+  <button (click)="filterTasksByStatus('Completed')" class="filtered-button btc">Completed</button>
+</div>
+
+
+
+<!-- Tasks Container -->
+<div class="tasks-container">
+  <h3>Your Tasks</h3>
+  <ul>
+      <li
+        *ngFor="let task of filteredTasks"
+        class="task-card"
+        [ngClass]="{
+          'high-priority': task.priority === 'High',
+          'overdue': isDeadlinePassed(task.dueDate),
+          'completed': task.status === 'Completed',
+          'in-progress': task.status === 'InProgress'
+        }"
+      >
+      <!-- Task Details -->
+      <div>
+        <strong>{{ task.taskName }}</strong><br />
+        Status:
+        <span
+          *ngIf="task.status === 'InProgress'"
+          class=""
+        >
+          In Progress<span class="loading-dots"></span>
+        </span>
+        <span *ngIf="task.status !== 'InProgress'">{{ task.status }}</span><br />
+        Priority:
+        <span
+          class="high-priority-text"
+          *ngIf="task.priority === 'High'"
+          >{{ task.priority }}</span
+        >
+        <span *ngIf="task.priority !== 'High'">{{ task.priority }}</span><br />
+        Due Date:
+        <span
+          class="deadline-passed"
+          *ngIf="isDeadlinePassed(task.dueDate)"
+          >{{ task.dueDate | date }} (Deadline Passed)</span
+        >
+        <span *ngIf="!isDeadlinePassed(task.dueDate)"
+          >{{ task.dueDate | date }}</span
+        ><br />
+      </div>
+     
+      <!-- Buttons aligned to the right -->
+      <div class="task-buttons">
+        <button   (click)="openTaskDetails(task)" class="det-button"  >
+          Details
+        </button>
+
+        <button
+          *ngIf="task.status === 'Pending'"
+          (click)="startTask(task)"
+          class="task-button start-button"
+        >
+          Start
+        </button>
+        <button
+          *ngIf="task.status === 'InProgress'"
+          (click)="markAsCompleted(task)"
+          class="task-button complete-button"
+        >
+          Complete
+        </button>
+        <button
+          *ngIf="task.status === 'Completed'"
+          class="task-button btc"
+          disabled
+        >
+          Completed
+        </button>
+      </div>
+    
+    </li>
+  </ul>
+  <!-- Conditionally display the TaskDetailsComponent -->
+<app-task-details *ngIf="selectedTask" [task]="selectedTask" (close)="closeTaskDetails()"></app-task-details>
+</div>

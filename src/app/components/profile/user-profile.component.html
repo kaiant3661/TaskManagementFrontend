@@ -1,0 +1,57 @@
+<!-- Header Section -->
+<div class="header">
+  <span class="date-time"><h4>{{ currentDate | date: 'fullDate' }} {{ currentDate | date: 'shortTime' }}</h4></span>
+  <span class="qout">"bater to do now then tomorrow"</span>
+  <!-- Circular Avatar with profile image -->
+  <div class="profile-avatar" (click)="navigateDashboard()">
+    <img src="assets/images/profile.png" alt="Profile Avatar" />
+  </div>
+</div>
+<app-navbar></app-navbar>
+
+<div class="profile-container">
+  <h2 class="profile-title">
+    {{ userProfile?.firstName }} {{ userProfile?.lastName }} Role: {{ userRole }}
+  </h2>
+  <div *ngIf="userProfile" class="profile-content">
+    <p><strong>First Name:</strong>
+      <span *ngIf="!isEditMode">{{ userProfile.firstName }}</span>
+      <input *ngIf="isEditMode" [(ngModel)]="userProfile.firstName" class="input-field" />
+    </p>
+
+    <p><strong>Last Name:</strong>
+      <span *ngIf="!isEditMode">{{ userProfile.lastName }}</span>
+      <input *ngIf="isEditMode" [(ngModel)]="userProfile.lastName" class="input-field" />
+    </p>
+
+    <p><strong>Email:</strong>
+      <span *ngIf="!isEditMode">{{ userProfile.email }}</span>
+      <input *ngIf="isEditMode" [(ngModel)]="userProfile.email" class="input-field" />
+    </p>
+
+      <p><strong>Role:</strong>
+        <span *ngIf="!isEditMode">{{ userProfile.role?.roleName }}</span>
+        <select *ngIf="isEditMode && userRole === 'Admin'" [(ngModel)]="userProfile.roleId" class="input-field">
+          <option *ngFor="let role of roles" [value]="role.roleId">{{ role.roleName }}</option>
+        </select>
+      </p>
+
+    <p *ngIf="isEditMode"><strong>Password:</strong>
+      <input type="password" [(ngModel)]="newPassword" class="input-field" autocomplete="new-password" />
+    </p>
+
+    <p *ngIf="isEditMode"><strong>Confirm Password:</strong>
+      <input type="password" [(ngModel)]="confirmPassword" class="input-field" autocomplete="new-password" />
+    </p>
+  </div>
+
+  <div>
+    <button *ngIf="!isEditMode" (click)="enableEditMode()" class="edit-btn">Edit Profile</button>
+    <button *ngIf="!isEditMode" (click)="logout()" class="logout-btn">Logout</button>
+  </div>
+  
+  <div *ngIf="isEditMode">
+    <button (click)="saveUserProfile()" class="save-btn">Save</button>
+    <button (click)="cancelEditMode()" class="cancel-btn">Cancel</button>
+  </div>
+</div>

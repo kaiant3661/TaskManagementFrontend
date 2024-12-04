@@ -1,0 +1,29 @@
+<div class="modal-backdrop">
+  <div class="modal">
+    <div class="modal-header">
+      <h4>Add New Task</h4>
+      <button class="close-btn" (click)="closeModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="taskForm" (ngSubmit)="saveTask()">
+        <div>
+          <label>Task Name:</label>
+          <input type="text" formControlName="taskName" required />
+        </div>
+        <div>
+          <label>Due Date:</label>
+          <input type="datetime-local" formControlName="dueDate" required />
+        </div>
+        <div>
+          <label>Assign To:</label>
+          <select formControlName="assignedToUserId" required>
+            <option *ngFor="let user of users" [value]="user.userId">
+              {{ user.firstName }} {{ user.lastName }}
+            </option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-success" [disabled]="taskForm.invalid">Save Task</button>
+      </form>
+    </div>
+  </div>
+</div>

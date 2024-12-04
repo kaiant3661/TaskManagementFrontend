@@ -1,0 +1,13 @@
+<!-- src/app/components/role-management/role-management.component.html -->
+<div class="role-management">
+  <h2>Role Management</h2>
+  
+  <!-- Create Role Form -->
+  <input [(ngModel)]="newRoleName" placeholder="Enter new role name" />
+  <button (click)="createRole()">Create Role</button>
+
+  <h3>Existing Roles</h3>
+  <ul>
+    <li *ngFor="let role of roles">{{ role.roleName }}</li>
+  </ul>
+</div>

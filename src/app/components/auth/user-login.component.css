@@ -1,0 +1,124 @@
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url('assets/images/bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+}
+
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #512da8; /* Add your desired color overlay */
+  opacity: 0.5; /* Adjust transparency as needed */
+  z-index: 1; /* Ensures the overlay stays behind the content */
+}
+
+.container {
+  width: 100%;
+  max-width: 400px;
+  margin-top: 0px;
+  margin-left:0px;
+  z-index: 2; /* Ensure container appears above the overlay */
+  position: relative;
+}
+
+.login-form {
+  background-color: #ffffff; /* White background for the form */
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px #512da8; /* Shadow effect */
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #512da8;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  font-size: 14px;
+  color:#512da8; 
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #512da8; 
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 10px;
+  background-color: #512da8;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:disabled {
+  background-color: #ccc;
+}
+
+p {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+a {
+  color: #039be5; 
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.sprinkle-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.sprinkle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #ffc107;
+  border-radius: 50%;
+  animation: sprinkle-animation 1s ease-out forwards;
+}
+
+@keyframes sprinkle-animation {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-200px) rotate(360deg);
+  }
+}

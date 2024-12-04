@@ -1,0 +1,15 @@
+<div class="task-details-modal">
+  <div class="task-details-card">
+    <h3>Task Details</h3>
+    <div class="task-details">
+      <p><strong>Task Name:</strong> {{ task?.taskName }}</p>
+      <p><strong>Description:</strong> {{ task?.description || 'N/A' }}</p>
+      <p><strong>Status:</strong> {{ task?.status }}</p>
+      <p><strong>Priority:</strong> {{ task?.priority }}</p>
+      <p><strong>Assigned To:</strong> {{ task?.assignedToUserId }}</p>
+      <p><strong>Created By:</strong> {{ task?.createdByUserId }}</p>
+      <p><strong>Due Date:</strong> {{ task?.dueDate | date }}</p>
+    </div>
+    <button class="close-btn" (click)="closePopup()">Close</button>
+  </div>
+</div>

@@ -1,0 +1,101 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: hsl(180, 8%, 64%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+} 
+
+
+
+.qout {
+  background-color: white; /* White background */
+  font-family: 'Georgia', 'Times New Roman', serif; /* Stylish serif font */
+  font-size: 1rem; /* Slightly larger font size for emphasis */
+  font-style: italic; /* Italic style for a quote-like appearance */
+  color: #333; /* Dark gray text color */
+  text-align: center; /* Center text horizontally */
+  padding: 5px; /* Add some space around the text */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a lifted look */
+  margin: auto; /* Center horizontally */
+  max-width: 80%; /* Restrict the width of the quote box */
+  display: flex; /* Flexbox for vertical centering */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  height: 14px; /* Fixed height for the box */
+}
+
+
+/* Profile Container */
+.profile-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 4px 11px 22px 28px rgba(0, 0, 0, 0.1);
+}
+
+/* Title Styling */
+.profile-title {
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Profile Content */
+.profile-content p {
+  font-size: 16px;
+  margin: 10px 0;
+  color: #555;
+}
+
+.profile-content strong {
+  font-weight: 600;
+  color: #333;
+}
+
+/* Input Styling */
+.input-field {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* Button Styling */
+button {
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+  margin-right: 10px;
+}
+
+/* Button States */
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

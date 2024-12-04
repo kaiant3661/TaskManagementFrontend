@@ -1,0 +1,168 @@
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color:  #879297;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  } 
+  
+  
+  
+  .qout {
+    background-color: white; /* White background */
+    font-family: 'Georgia', 'Times New Roman', serif; /* Stylish serif font */
+    font-size: 1rem; /* Slightly larger font size for emphasis */
+    font-style: italic; /* Italic style for a quote-like appearance */
+    color: #333; /* Dark gray text color */
+    text-align: center; /* Center text horizontally */
+    padding: 5px; /* Add some space around the text */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a lifted look */
+    margin: auto; /* Center horizontally */
+    max-width: 80%; /* Restrict the width of the quote box */
+    display: flex; /* Flexbox for vertical centering */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    height: 14px; /* Fixed height for the box */
+  }/* Container Styling */
+
+
+  body {
+    margin: 0; /* Removes default margins */
+    padding: 0; /* Removes default padding */
+    height: 98vh; /* Ensures it fills the viewport height */
+    width: 98vw; /* Ensures it fills the viewport width */
+    background: url('assets/images/bg.jpg') no-repeat center center fixed;
+    background-size: cover; /* Ensures the image covers the entire background */
+    overflow: hidden; /* Prevents scrolling if content overflows */
+  }
+  
+  app-navbar{
+    z-index: 10;
+  }
+  
+  body::before {
+  
+    background-color: #512da8; /* Add your desired color overlay */
+    opacity: 0.5; /* Adjust transparency as needed */
+    z-index: 1; /* Ensures the overlay stays behind the content */
+  }
+  
+.admin-registration-form {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+    z-index: 5;
+  }
+  
+  /* Title Styling */
+  .admin-registration-form h2 {
+    text-align: center;
+    font-size: 26px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  /* Form Field Styling */
+  .admin-registration-form form div {
+    margin-bottom: 15px;
+  }
+  
+  .admin-registration-form label {
+    font-size: 14px;
+    color: #555;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .admin-registration-form input[type="text"],
+  .admin-registration-form input[type="email"],
+  .admin-registration-form input[type="password"],
+  .admin-registration-form select {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    padding: 4px;
+  }
+  
+  .admin-registration-form input:focus,
+  .admin-registration-form select:focus {
+    border-color:  #039be5;
+  }
+  
+  /* Button Styling */
+  .admin-registration-form button {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color:blueviolet;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s ease;
+  } 
+  
+
+  
+  /* Disabled Button */
+  .admin-registration-form button:disabled {
+    background-color: #bbb;
+    cursor: not-allowed;
+    transform: none;
+  }
+  
+  /* Error Message */
+  .error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .admin-registration-form {
+      padding: 15px;
+    }
+  
+    .admin-registration-form h2 {
+      font-size: 22px;
+    }
+  
+    .admin-registration-form input,
+    .admin-registration-form select,
+    .admin-registration-form button {
+      font-size: 14px;
+    }
+  }
+  .error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 10px;
+  }
+  

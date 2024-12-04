@@ -1,0 +1,40 @@
+/* navbar.component.css */
+.navbar {
+    background-color: #333;
+    padding: 10px;
+  }
+  
+  .navbar-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .navbar-item {
+    margin: 0 10px;
+  }
+  
+  .navbar-button {
+    background-color: #512da8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+  }
+  
+  .navbar-button:hover {
+    background-color: #039be5;
+  }
+  
+  .navbar-button:focus {
+    outline: none;
+  }
+  
+  .active {
+    background-color: #512da8;
+  }
+  

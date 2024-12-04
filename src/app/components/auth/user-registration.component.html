@@ -1,0 +1,89 @@
+
+<body><div class="registration-form">
+  <h2>User Registration</h2>
+  <form (ngSubmit)="register()" #registrationForm="ngForm">
+    <div>
+      <label for="email">Email</label>
+      <input
+        type="email"
+        [(ngModel)]="email"
+        name="email"
+        required
+        #emailField="ngModel"
+      />
+      <div *ngIf="emailField.invalid && emailField.touched" class="error">
+        Email is required and must be a valid format.
+      </div>
+    </div>
+
+    <div>
+      <label for="password">Password</label>
+      <input
+        type="password"
+        [(ngModel)]="password"
+        name="password"
+        required
+        minlength="6"
+        #passwordField="ngModel"
+      />
+      <div *ngIf="passwordField.invalid && passwordField.touched" class="error">
+        Password is required and must be at least 6 characters long.
+      </div>
+    </div>
+
+    <div>
+      <label for="confirmPassword">Confirm Password</label>
+      <input
+        type="password"
+        [(ngModel)]="confirmPassword"
+        name="confirmPassword"
+        required
+        [class.invalid]="passwordMismatch"
+      />
+      <div *ngIf="passwordMismatch" class="error">
+        Passwords do not match.
+      </div>
+    </div>
+
+    <div>
+      <label for="firstName">First Name</label>
+      <input
+        type="text"
+        [(ngModel)]="firstName"
+        name="firstName"
+        required
+        #firstNameField="ngModel"
+      />
+      <div *ngIf="firstNameField.invalid && firstNameField.touched" class="error">
+        First Name is required.
+      </div>
+    </div>
+
+    <div>
+      <label for="lastName">Last Name</label>
+      <input
+        type="text"
+        [(ngModel)]="lastName"
+        name="lastName"
+        required
+        #lastNameField="ngModel"
+      />
+      <div *ngIf="lastNameField.invalid && lastNameField.touched" class="error">
+        Last Name is required.
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="registrationForm.invalid || passwordMismatch">
+      Register
+    </button>
+    <button type="button" (click)="navigateToLogin()" class="login-button">
+      Already have an account? Login
+    </button>
+  </form>
+</div>
+
+<!-- Popup for error message -->
+<div *ngIf="errorMessage" class="popup">
+  <p>{{ errorMessage }}</p>
+  <button (click)="closePopup()">Close</button>
+</div></body>

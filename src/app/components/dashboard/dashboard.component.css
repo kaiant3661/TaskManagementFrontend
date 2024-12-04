@@ -1,0 +1,247 @@
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: hsl(180, 8%, 64%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+} 
+
+
+
+.qout {
+  background-color: white; /* White background */
+  font-family: 'Georgia', 'Times New Roman', serif; /* Stylish serif font */
+  font-size: 1rem; /* Slightly larger font size for emphasis */
+  font-style: italic; /* Italic style for a quote-like appearance */
+  color: #333; /* Dark gray text color */
+  text-align: center; /* Center text horizontally */
+  padding: 5px; /* Add some space around the text */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a lifted look */
+  margin: auto; /* Center horizontally */
+  max-width: 80%; /* Restrict the width of the quote box */
+  display: flex; /* Flexbox for vertical centering */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  height: 14px; /* Fixed height for the box */
+}
+
+
+
+
+
+
+
+/* CSS classes for high priority and overdue tasks */
+.high-priority {
+  font-weight: bold;
+  color: purple;
+}
+
+.high-priority-text {
+  color: purple;
+  font-weight: bold;
+}
+
+.deadline-passed {
+  color: red;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Blinking text for "In Progress" */
+.blinking-text {
+  animation: blink 1.5s infinite;
+}
+
+.loading-dots::after {
+  content: '.';
+  font-weight: bold;
+  animation: dot-blink 1.5s infinite;
+}
+
+@keyframes dot-blink {
+  0% { content: ' .'; }
+  20% { content: ' . .'; }
+  40% { content: ' . . .'; }
+  60% { content: ' . . . .'; }
+ 80%{ content: ' . . . . .'; }
+  100% { content: ' . . . . . .'; }
+
+}
+
+/* Task Card Styles */
+.task-card {
+  padding: 15px;
+  margin: 10px 0;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.in-progress {
+  border: 2px solid blue;
+}
+
+
+.high-priority {
+  border: 2px solid purple;
+}
+
+.overdue {
+  border: 2px solid red;
+}
+
+/* Button Styles */
+.task-button {
+  padding: 10px;
+  margin-top: 0px;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  width: 100px; /* Ensure buttons have consistent width */
+  margin-left: 10px; /* Spacing between buttons */
+}
+
+.start-button {
+  background-color: rgb(209, 209, 23);
+  border: 2px solid rgb(228, 228, 26);
+}
+
+.complete-button {
+  background-color: blue;
+  border: 2px solid blue;
+}
+
+.completed {
+  background-color: rgb(186, 235, 186);
+  border: 2px solid darkgreen;
+  cursor: not-allowed;
+  
+}
+.btc {
+  background-color: rgb(0, 116, 0);
+  border: 2px solid darkgreen;
+  cursor: not-allowed;
+  
+}
+
+
+/* Task Buttons aligned to the right */
+.task-buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  
+}
+
+.task-button:disabled {
+  opacity: 7.9;
+  pointer-events: none;
+}
+
+.det-button {
+  padding: 10px;
+  margin-top: 0px;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100px; /* Ensure buttons have consistent width */
+  display: flex;
+  justify-content: center; /* Centers text horizontally */
+  align-items: center; /* Centers text vertically */
+  background-color: rgb(54, 6, 133);
+  border: 2px solid rgb(38, 7, 175);
+}
+
+
+
+.filter-buttons {
+  display: flex;
+  justify-content: flex-start; /* Align the buttons in a line */
+  gap: 10px; /* Add space between buttons */
+  margin-bottom: 20px; /* Space below the filter buttons */
+}
+
+.filtered-button {
+  margin-top: 5px;
+  padding: 5px;/* Add horizontal and vertical padding */
+  border-radius: 5px; /* Rounded corners */
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-flex; /* Ensures buttons stay inline */
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase; /* Capitalize text */
+  font-size: 11px; /* Set font size */
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+  border: 2px solid transparent; /* Set default border */
+}
+
+.filtered-button:hover {
+  opacity: 0.9; /* Slight fade on hover */
+}
+
+.all {
+  background-color: rgb(6, 136, 39);
+  border: 2px solid rgb(6, 136, 39);
+}
+
+
+.filtered-button:focus {
+  outline: none; /* Remove focus outline */
+}
+
+.filtered-button:active {
+  transform: scale(0.98); /* Slight shrink effect on click */
+}
+
+
+
+strong {
+  font-weight: bold;
+}
+
+
+.task-count {
+  font-weight: bold;
+  color: #00828b; /* You can change this color to match your theme */
+  margin-right: 5px;  /* Add some space between the numbers */
+}
+
+.qout span {
+  margin-right: 10px;  /* Space out the task counts from each other */
+}

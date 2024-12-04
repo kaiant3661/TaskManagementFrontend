@@ -1,1 +1,42 @@
-/* You can add global styles to this file, and also import other style files */
+/* Universal Styles */
+
+
+
+/* Universal Background */
+.universal-bg {
+    background-color: #ffffff; /* Myst white background */
+    color: #038C8C; /* Primary text color */
+  }
+  
+  /* Universal Button */
+  .universal-btn {
+    padding: 10px 15px;
+    background-color: #038C8C; /* Button background color */
+    color: #ffffff; /* Text color */
+    border: 2px solid #038C8C; /* Border matches button color */
+    border-radius: 10px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .universal-btn:hover {
+    background-color: #55d3d1; /* Hover background */
+    color: #000000; /* Hover text color */
+  }
+  
+  /* Universal List Tile */
+  .universal-tile {
+    background-color: #007273; /* Tile background */
+    color: #007273; /* Tile text */
+    border: 2px solid #038C8C; /* Border matches button border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .universal-tile:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced hover effect */
+  }
+  

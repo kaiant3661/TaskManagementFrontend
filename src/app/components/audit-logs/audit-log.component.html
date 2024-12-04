@@ -1,0 +1,60 @@
+<!-- Header Section -->
+<div class="header">
+  <span class="date-time"><h4>{{ currentDate | date: 'fullDate' }} {{ currentDate | date: 'shortTime' }}</h4></span>
+  
+  
+ 
+  <!-- Circular Avatar with profile image -->
+  <div class="profile-avatar" (click)="navigateToProfile()">
+    <img src="assets/images/profile.png" alt="Profile Avatar" />
+  </div>
+</div>
+<app-navbar></app-navbar>
+<div class="audit-log-container">
+  <h2>Audit Logs</h2>
+
+  <!-- Error message -->
+  <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+
+  <!-- Search Form -->
+  <div class="search-bar">
+    <input type="date" [(ngModel)]="searchDate" placeholder="Select Date" />
+    <input [(ngModel)]="searchTerm" placeholder="Search by action..." />
+    <button (click)="searchLogs()">Search</button>
+    <button (click)="loadAllLogs()">Reset</button>
+  </div>
+
+  <!-- Clear All Logs -->
+  <button class="clear-button" (click)="confirmClearLogs()">Clear All Logs</button>
+
+  <!-- Logs Table -->
+  <table *ngIf="auditLogs.length > 0" class="logs-table">
+    <thead>
+      <tr>
+        <th>Action</th>
+        <th>Date</th>
+        <th>User</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let log of auditLogs">
+        <td>{{ log.action }}</td>
+        <td>{{ log.timestamp | date: 'fullDate' }} {{ log.timestamp | date: 'shortTime' }}</td>
+        <td>{{ log.performedByUser?.firstName }} {{ log.performedByUser?.lastName }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="auditLogs.length === 0 && !errorMessage">No logs available.</p>
+</div>
+
+<!-- Confirmation Popup -->
+<div class="confirmation-popup" *ngIf="showPopup">
+  <div class="popup-content">
+    <h3>Warning</h3>
+    <p>Are you sure you want to clear all logs permanently?</p>
+    <p class="note">You won't be able to retrieve them again.</p>
+    <button class="confirm-button" (click)="clearAllLogs()">OK</button>
+    <button class="cancel-button" (click)="cancelPopup()">Cancel</button>
+  </div>
+</div>

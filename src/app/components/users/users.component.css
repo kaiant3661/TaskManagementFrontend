@@ -1,0 +1,238 @@
+
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: hsl(180, 8%, 64%);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  } 
+  
+  
+  
+  .qout {
+    background-color: white; /* White background */
+    font-family: 'Georgia', 'Times New Roman', serif; /* Stylish serif font */
+    font-size: 1rem; /* Slightly larger font size for emphasis */
+    font-style: italic; /* Italic style for a quote-like appearance */
+    color: #333; /* Dark gray text color */
+    text-align: center; /* Center text horizontally */
+    padding: 5px; /* Add some space around the text */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a lifted look */
+    margin: auto; /* Center horizontally */
+    max-width: 80%; /* Restrict the width of the quote box */
+    display: flex; /* Flexbox for vertical centering */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    height: 14px; /* Fixed height for the box */
+  }
+  
+  .register-button-container {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .dialog-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .dialog-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 400px;
+  }
+  
+  .user-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+  }
+  /* General styling */
+.user-info {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #007bff;
+    margin: 10px 0;
+  }
+  
+  .user-list-heading {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 20px;
+    color: #333;
+  }
+  
+  /* Table styling */
+  .table-container {
+    margin: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .styled-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .styled-table th,
+  .styled-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .styled-table th {
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  .styled-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .styled-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .styled-table td {
+    transition: background-color 0.3s;
+  }
+  
+  .total-tasks {
+    color: blue;
+    background-color: #d6ebff;
+  }
+  
+  .completed-tasks {
+    color: green;
+    background-color: #d4f9d4;
+  }
+  
+  .pending-tasks {
+    color: red;
+    background-color: #ffe6e6;
+  }
+  
+ /* Adjusted Button Styling for Smaller Size */
+.rounded-button {
+    border-radius: 10px;  /* Smaller radius for a more compact button */
+    padding: 6px 10px;    /* Reduced padding */
+    font-size: 12px;      /* Smaller font size */
+    cursor: pointer;
+    border: none;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  
+  .rounded-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .details-button {
+    background-color: #00aab6;
+    color: white;
+  }
+  
+  .details-button:hover {
+    background-color: #008e99;
+  }
+  
+  /* Dialog styling */
+  
+  .dialog-content {
+    text-align: center;
+  }
+  
+  .user-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+  }
+  
+  .close-button {
+    background-color: #ff5722;
+    color: white;
+  }
+  
+  .close-button:hover {
+    background-color: #e64a19;
+  }
+  
+  /* Hover animations */
+  .styled-table td:hover {
+    background-color: #fffae6;
+  }
+  /* Dialog styling */
+
+  .dialog-content {
+    text-align: center;
+  }
+  
+  .user-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+  }
+  
+  ul {
+    max-height: 50vh; /* Limit height of the list to 50% of the viewport height */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 0;
+    list-style: none;
+    margin: 0;
+  }
+  
+  ul li {
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin-bottom: 5px;
+  }
+  
+  ul li:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .close-button {
+    background-color: #ff5722;
+    color: white;
+  }
+  
+  .close-button:hover {
+    background-color: #e64a19;
+  }
+  
