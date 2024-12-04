@@ -18,12 +18,21 @@ export class UserRegistrationComponent {
 
   constructor(private authService: AuthService, private router: Router) {}
 
+  // This method checks if the passwords match
+  checkPasswordMismatch() {
+    this.passwordMismatch = this.password !== this.confirmPassword;
+  }
+
   register() {
+    // Check if passwords match right before registration
     this.checkPasswordMismatch();
+
+    // If passwords don't match, prevent registration
     if (this.passwordMismatch) {
       return;
     }
 
+    // Call the registration service if passwords match
     this.authService.register(this.email, this.password, this.firstName, this.lastName).subscribe(
       (response) => {
         console.log('Registration successful:', response);
@@ -50,10 +59,6 @@ export class UserRegistrationComponent {
 
   closePopup() {
     this.errorMessage = null;
-  }
-
-  checkPasswordMismatch() {
-    this.passwordMismatch = this.password !== this.confirmPassword;
   }
 
   // Navigate to the login page

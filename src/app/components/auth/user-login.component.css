@@ -18,7 +18,7 @@ body::before {
   width: 100%;
   height: 100%;
   background-color: #512da8; /* Add your desired color overlay */
-  opacity: 0.5; /* Adjust transparency as needed */
+  opacity: 0.4; /* Adjust transparency as needed */
   z-index: 1; /* Ensures the overlay stays behind the content */
 }
 

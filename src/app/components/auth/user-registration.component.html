@@ -1,89 +1,104 @@
-
-<body><div class="registration-form">
-  <h2>User Registration</h2>
-  <form (ngSubmit)="register()" #registrationForm="ngForm">
-    <div>
-      <label for="email">Email</label>
-      <input
-        type="email"
-        [(ngModel)]="email"
-        name="email"
-        required
-        #emailField="ngModel"
-      />
-      <div *ngIf="emailField.invalid && emailField.touched" class="error">
-        Email is required and must be a valid format.
+<body>
+  <div class="registration-form">
+    <h2>User Registration</h2>
+    <form (ngSubmit)="register()" #registrationForm="ngForm">
+      <!-- Email Field -->
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          [(ngModel)]="email"
+          name="email"
+          class="form-input"
+          required
+          #emailField="ngModel"
+        />
+        <div *ngIf="emailField.invalid && emailField.touched" class="error error-message">
+          Please enter a valid email address.
+        </div>
       </div>
-    </div>
 
-    <div>
-      <label for="password">Password</label>
-      <input
-        type="password"
-        [(ngModel)]="password"
-        name="password"
-        required
-        minlength="6"
-        #passwordField="ngModel"
-      />
-      <div *ngIf="passwordField.invalid && passwordField.touched" class="error">
-        Password is required and must be at least 6 characters long.
+      <!-- Password Field -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          [(ngModel)]="password"
+          name="password"
+          class="form-input"
+          required
+          minlength="6"
+          #passwordField="ngModel"
+        />
+        <div *ngIf="passwordField.invalid && passwordField.touched" class="error error-message">
+          Password is required and must be at least 6 characters long.
+        </div>
       </div>
-    </div>
 
-    <div>
-      <label for="confirmPassword">Confirm Password</label>
-      <input
-        type="password"
-        [(ngModel)]="confirmPassword"
-        name="confirmPassword"
-        required
-        [class.invalid]="passwordMismatch"
-      />
-      <div *ngIf="passwordMismatch" class="error">
-        Passwords do not match.
+      <!-- Confirm Password Field -->
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input
+          type="password"
+          [(ngModel)]="confirmPassword"
+          name="confirmPassword"
+          class="form-input"
+          required
+          [class.invalid]="passwordMismatch"
+          (ngModelChange)="checkPasswordMismatch()"
+        />
+        <div *ngIf="passwordMismatch" class="error error-message">
+          Passwords do not match.
+        </div>
       </div>
-    </div>
 
-    <div>
-      <label for="firstName">First Name</label>
-      <input
-        type="text"
-        [(ngModel)]="firstName"
-        name="firstName"
-        required
-        #firstNameField="ngModel"
-      />
-      <div *ngIf="firstNameField.invalid && firstNameField.touched" class="error">
-        First Name is required.
+      <!-- First Name Field -->
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input
+          type="text"
+          [(ngModel)]="firstName"
+          name="firstName"
+          class="form-input"
+          required
+          #firstNameField="ngModel"
+        />
+        <div *ngIf="firstNameField.invalid && firstNameField.touched" class="error error-message">
+          First Name is required.
+        </div>
       </div>
-    </div>
 
-    <div>
-      <label for="lastName">Last Name</label>
-      <input
-        type="text"
-        [(ngModel)]="lastName"
-        name="lastName"
-        required
-        #lastNameField="ngModel"
-      />
-      <div *ngIf="lastNameField.invalid && lastNameField.touched" class="error">
-        Last Name is required.
+      <!-- Last Name Field -->
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input
+          type="text"
+          [(ngModel)]="lastName"
+          name="lastName"
+          class="form-input"
+          required
+          #lastNameField="ngModel"
+        />
+        <div *ngIf="lastNameField.invalid && lastNameField.touched" class="error error-message">
+          Last Name is required.
+        </div>
       </div>
-    </div>
 
-    <button type="submit" [disabled]="registrationForm.invalid || passwordMismatch">
-      Register
-    </button>
-    <button type="button" (click)="navigateToLogin()" class="login-button">
-      Already have an account? Login
-    </button>
-  </form>
-</div>
+      <!-- Submit Button -->
+      <button type="submit" [disabled]="registrationForm.invalid || passwordMismatch" class="submit-button">
+        Register
+      </button>
 
-<!-- Popup for error message -->
-<div *ngIf="errorMessage" class="popup">
-  <p>{{ errorMessage }}</p>
-  <button (click)="closePopup()">Close</button>
-</div></body>
+      <!-- Login Button -->
+      <button type="button" (click)="navigateToLogin()" class="login-button">
+        Already have an account? Login
+      </button>
+    </form>
+  </div>
+
+  <!-- Error Popup -->
+  <div *ngIf="errorMessage" class="popup">
+    <p>{{ errorMessage }}</p>
+    <button (click)="closePopup()">Close</button>
+  </div>
+</body>
