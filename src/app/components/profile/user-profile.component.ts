@@ -31,7 +31,7 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.userId = this.route.snapshot.params['id'];
-    this.userRole = localStorage.getItem('user_role');
+    this.userRole = sessionStorage.getItem('user_role');
     this.loadUserProfile();
     if (this.userRole === 'Admin') {
       this.loadRoles();
@@ -84,9 +84,9 @@ export class UserProfileComponent implements OnInit {
       (response: User) => {
         this.userProfile = response;
   
-        if (this.userId === localStorage.getItem('userId')) {
+        if (this.userId === sessionStorage.getItem('userId')) {
           const role = this.roles.find((r) => r.roleId === this.userProfile.roleId);
-         localStorage.setItem('user_role', role ? role.roleName || '' : '');
+         sessionStorage.setItem('user_role', role ? role.roleName || '' : '');
 
         }
         

@@ -31,14 +31,14 @@ export class TaskService {
 
   // Create a new task
   createTask(task: Task): Observable<Task> {
-    task.createdByUserId = Number(localStorage.getItem('userId'));
+    task.createdByUserId = Number(sessionStorage.getItem('userId'));
 
     return this.http.post<Task>(this.apiUrl, task);
   }
 
   // Update task by ID
   updateTask(id: number, task: Task): Observable<Task> {
-    task.createdByUserId = Number(localStorage.getItem('userId'));
+    task.createdByUserId = Number(sessionStorage.getItem('userId'));
     return this.http.put<Task>(`${this.apiUrl}/${id}`, task);
   }
 

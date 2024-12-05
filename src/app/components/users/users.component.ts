@@ -179,7 +179,7 @@ export class UsersComponent implements OnInit {
   }
 
   navigateToYourProfile(): void {
-    this.userId=localStorage.getItem('userId');
+    this.userId=sessionStorage.getItem('userId');
     if (this.userId) {
       this.router.navigate([`/profile/${this.userId}`]);  // Pass userId as part of the URL
     } else {

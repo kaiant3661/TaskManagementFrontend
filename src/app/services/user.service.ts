@@ -27,9 +27,9 @@ export class UserService {
     return this.http.put(this.apiUrl + '/update', user);
   }
   deleteUser(userId: number): Observable<any> {
-    const performedBy = Number(localStorage.getItem('userId')) || 0; // Default to 0 if not valid
+    const performedBy = Number(sessionStorage.getItem('userId')) || 0; // Default to 0 if not valid
     if (!performedBy) {
-      throw new Error('Invalid performedBy user ID from localStorage.');
+      throw new Error('Invalid performedBy user ID from sessionStorage.');
     }
     const url = `${this.apiUrl}/${userId}?performedBy=${performedBy}`;
     return this.http.delete(url);

@@ -30,8 +30,8 @@ export class DashboardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Assuming the userId is stored in localStorage after login
-    this.userId = localStorage.getItem('userId');  // Fetch userId from localStorage
+    // Assuming the userId is stored in sessionStorage after login
+    this.userId = sessionStorage.getItem('userId');  // Fetch userId from sessionStorage
 
     // Get tasks for the current user when the component initializes
     this.taskService.getUserTasks().subscribe(
@@ -127,7 +127,7 @@ filterTasksByStatus(status: string): void {
 
   // Navigate to the user profile page with the userId
   navigateToProfile(): void {
-    this.userId = localStorage.getItem('userId');
+    this.userId = sessionStorage.getItem('userId');
     if (this.userId) {
       this.router.navigate([`/profile/${this.userId}`]);  // Pass userId as part of the URL
     } else {

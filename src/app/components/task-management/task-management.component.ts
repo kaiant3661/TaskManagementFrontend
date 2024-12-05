@@ -154,7 +154,7 @@ closeTaskDetailsModal(): void {
   }
     // Navigate to the user profile page with the userId
     navigateToProfile(): void {
-      this.userId=localStorage.getItem('userId');
+      this.userId=sessionStorage.getItem('userId');
       if (this.userId) {
         this.router.navigate([`/profile/${this.userId}`]);  // Pass userId as part of the URL
       } else {

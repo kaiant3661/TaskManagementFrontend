@@ -142,7 +142,10 @@
     color: red;
     background-color: #ffe6e6;
   }
-  
+  .inProgress-tasks {
+    color: rgb(6, 129, 138);
+    background-color: #c1fbfd;
+  }
  /* Adjusted Button Styling for Smaller Size */
 .rounded-button {
     border-radius: 10px;  /* Smaller radius for a more compact button */

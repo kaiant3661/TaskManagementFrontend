@@ -15,9 +15,9 @@ import 'rxjs/add/operator/do';
 @Injectable()
 export class AuthService {
   private apiUrl = 'http://localhost:5096/api/auth';
-  private tokenKey = 'userToken';  // Token key in localStorage
-  private userIdKey = 'userId';    // User ID key in localStorage
-  private userRoleKey = 'user_role';  // User role key in localStorage
+  private tokenKey = 'userToken';  // Token key in sessionStorage
+  private userIdKey = 'userId';    // User ID key in sessionStorage
+  private userRoleKey = 'user_role';  // User role key in sessionStorage
   
   constructor(private http: HttpClient, private userProfileService: UserProfileService) {}
 
@@ -28,14 +28,14 @@ export class AuthService {
     // Initial login call to fetch the token and userId
     return this.http.post(`${this.apiUrl}/login`, body)
       .switchMap((response: any) => {
-        // Store token and userId in localStorage
-        localStorage.setItem(this.tokenKey, response.token);
-        localStorage.setItem(this.userIdKey, response.userId);
+        // Store token and userId in sessionStorage
+        sessionStorage.setItem(this.tokenKey, response.token);
+        sessionStorage.setItem(this.userIdKey, response.userId);
   
         // Fetch user profile to retrieve the role
         return this.userProfileService.getUserProfile(response.userId)
           .do((userProfile: any) => {
-            localStorage.setItem(this.userRoleKey, userProfile.role.roleName); // Store user role
+            sessionStorage.setItem(this.userRoleKey, userProfile.role.roleName); // Store user role
           })
           .map(() => response); // Return the original response after role is stored
       })
@@ -61,23 +61,23 @@ export class AuthService {
 
   // Check if user is authenticated (token exists)
   isAuthenticated(): boolean {
-    const token = localStorage.getItem(this.tokenKey);  // Get token from storage
+    const token = sessionStorage.getItem(this.tokenKey);  // Get token from storage
     return token != null;  // Return true if token exists, meaning user is logged in
   }
 
   // Get the current logged-in user's ID
   getUserId(): string | null {
-    return localStorage.getItem(this.userIdKey);  // Get the user ID from storage
+    return sessionStorage.getItem(this.userIdKey);  // Get the user ID from storage
   }
   getUserrole(): string | null {
-    return localStorage.getItem(this.userRoleKey);  // Get the user ID from storage
+    return sessionStorage.getItem(this.userRoleKey);  // Get the user ID from storage
   }
 
 
-  // Logout function: clear both token and userId from localStorage
+  // Logout function: clear both token and userId from sessionStorage
   logout(): void {
-    localStorage.removeItem(this.tokenKey);  // Remove token from storage
-    localStorage.removeItem(this.userIdKey);  // Remove user ID from storage
-    localStorage.removeItem(this.userRoleKey);  // Remove user role from storage
+    sessionStorage.removeItem(this.tokenKey);  // Remove token from storage
+    sessionStorage.removeItem(this.userIdKey);  // Remove user ID from storage
+    sessionStorage.removeItem(this.userRoleKey);  // Remove user role from storage
   }
 }

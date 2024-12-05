@@ -33,8 +33,8 @@ export class LoginComponent {
     // Call login service
     this.authService.login(this.email, this.password).subscribe(
       (response) => {
-        localStorage.setItem('token', response.token); // Save JWT token
-        this.userRole = localStorage.getItem('user_role'); // Get the user role from localStorage
+        sessionStorage.setItem('token', response.token); // Save JWT token
+        this.userRole = sessionStorage.getItem('user_role'); // Get the user role from sessionStorage
         this.userId = this.authService.getUserId(); // Get the user ID
 
         // Fetch user profile and check if the account is deleted

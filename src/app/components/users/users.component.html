@@ -29,6 +29,7 @@
         <th>Total Tasks</th>
         <th>Completed Tasks</th>
         <th>Pending Tasks</th>
+        <th>In Progress</th>
         <th>Tenure</th>
         <th>Actions</th> <!-- Add a column for actions -->
       </tr>
@@ -39,6 +40,7 @@
         <td class="total-tasks">{{ user.totalTasksCount }}</td>
         <td class="completed-tasks">{{ user.completedTasksCount }}</td>
         <td class="pending-tasks">{{ user.pendingTasksCount }}</td>
+        <td class="inProgress-tasks">{{ user.inProgressTasksCount }}</td>
         <td>{{ getTenure(user.createdAt) }}</td>
         <td>
           <button mat-button class="details-button rounded-button" (click)="navigateToProfile(user.userId)">View Details</button>
